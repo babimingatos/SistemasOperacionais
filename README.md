@@ -1,4 +1,9 @@
 
+# Sistemas Operacionais
+
+Trabalhos entregues na matéria de Sistemas Operacionais, no curso de Análise e Desenvolvimento de Sistemas da FATEC Guaratinguetá.
+
+
 ## [Gerência de Memória](https://github.com/babimingatos/SistemasOperacionais/tree/main/Gerência%20de%20Memória)
 
 Flashcards utilizando JavaScript.

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title> Gerenciamento de Espaço em Memória</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body style="background-color: #a598ee48;min-height: 100%;">
+
+    <div class="container py-3">
+        <header>
+            <div class="d-flex flex-column align-items-center pb-3 mb-4 border-bottom">
+                <a href="index.html" class="d-flex align-items-center text-dark text-decoration-none">
+                    <span class="fs-4">Sistemas Operacionais</span>
+                </a>
+            </div>
+        </header>
+        <div class="flash">
+            <div class="flashcard" id="flashcard">
+                <h2 id="question"></h2>
+                <p id="answer" style="display: none;"></p>
+            </div>
+        </div>
+        <script>
+            const flashcard = document.getElementById('flashcard');
+            const questionElement = document.getElementById('question');
+            const answerElement = document.getElementById('answer');
+
+            const flashcards = [{
+                    question: 'O que é FIFO?',
+                    answer: 'First-In, First-Out é um algoritmo de escalonamento de processos no Linux que prioriza o processo que chegou primeiro a fila.'
+                },
+                {
+                    question: 'O que é SJF?',
+                    answer: 'Shortest Job First é um algoritmo de escalonamento de processos no Linux que prioriza o processo com menor tempo de execucao.'
+                },
+                {
+                    question: "O que é Starvation?",
+                    answer: "Acontece quando um processo aguarda durante muito tempo para ser executado (porque outros de maior prioridade estão sendo executados) e acaba “morrendo de fome”. Para solucionar isso, poderia ser utilizado uma fila FIFO."
+                },
+                {
+                    question: "O que é Deadlock?",
+                    answer: "Quando dois ou mais processos ficam impedidos de continuar suas execuções, ou seja, quando estiverem bloqueados aguardando a liberação de recursos que estão alocados entre eles."
+                },
+
+            ];
+
+            let currentFlashcardIndex = 0;
+
+            function showNextFlashcard() {
+                const currentFlashcard = flashcards[currentFlashcardIndex];
+
+                questionElement.textContent = currentFlashcard.question;
+                answerElement.textContent = currentFlashcard.answer;
+                answerElement.style.display = 'none';
+
+                currentFlashcardIndex = (currentFlashcardIndex + 1) % flashcards.length;
+            }
+            flashcard.addEventListener('click', function () {
+                if (answerElement.style.display === 'none') {
+                    answerElement.style.display = 'block';
+                } else {
+                    showNextFlashcard();
+                }
+            });
+            showNextFlashcard();
+        </script>
+</body>
+
+</html>
